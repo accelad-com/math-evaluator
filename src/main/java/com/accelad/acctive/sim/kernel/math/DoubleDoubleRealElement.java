@@ -131,7 +131,7 @@ public class DoubleDoubleRealElement implements FieldElement<DoubleDoubleRealEle
      * @return BigDecimal value corresponding to the instance
      */
     public DoubleDouble doubleDoubleValue() {
-        return new DoubleDouble(d.doubleValue());
+        return new DoubleDouble(d.getDoubleDouble());
     }
 
     /** {@inheritDoc} */
