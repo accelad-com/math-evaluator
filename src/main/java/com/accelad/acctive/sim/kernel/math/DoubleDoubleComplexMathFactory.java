@@ -3,7 +3,7 @@ package com.accelad.acctive.sim.kernel.math;
 import com.accelad.acctive.sim.kernel.core.evaluator.AbsFunction;
 import com.accelad.acctive.sim.kernel.core.evaluator.MaxFunction;
 import com.accelad.acctive.sim.kernel.core.evaluator.MinFunction;
-import com.accelad.math.DoubleDouble;
+import com.accelad.math.doubledouble.DoubleDouble;
 import com.accelad.math.nilgiri.DoubleDoubleComplex;
 import com.accelad.math.nilgiri.DoubleDoubleComplexFactory;
 import com.accelad.math.nilgiri.autodiff.Constant;
@@ -35,12 +35,12 @@ public class DoubleDoubleComplexMathFactory implements MathFactory<DoubleDoubleC
 
     @Override
     public DoubleDoubleComplex get(String literalValue) {
-        return new DoubleDoubleComplex(new DoubleDouble(literalValue), new DoubleDouble());
+        return new DoubleDoubleComplex(DoubleDouble.valueOf(literalValue), DoubleDouble.ZERO);
     }
 
     @Override
     public DoubleDoubleComplex get(DoubleDouble value) {
-        return new DoubleDoubleComplex(value, new DoubleDouble());
+        return new DoubleDoubleComplex(value, DoubleDouble.ZERO);
     }
 
     @Override
@@ -50,7 +50,7 @@ public class DoubleDoubleComplexMathFactory implements MathFactory<DoubleDoubleC
 
     @Override
     public Constant<DoubleDoubleComplex> val(String name) {
-        return dfFactory.val(new DoubleDoubleComplex(new DoubleDouble(name), new DoubleDouble()));
+        return dfFactory.val(new DoubleDoubleComplex(DoubleDouble.valueOf(name), DoubleDouble.ZERO));
     }
 
     @Override

@@ -3,7 +3,7 @@ package com.accelad.acctive.sim.kernel.math;
 import com.accelad.acctive.sim.kernel.core.evaluator.AbsFunction;
 import com.accelad.acctive.sim.kernel.core.evaluator.MaxFunction;
 import com.accelad.acctive.sim.kernel.core.evaluator.MinFunction;
-import com.accelad.math.DoubleDouble;
+import com.accelad.math.doubledouble.DoubleDouble;
 import com.accelad.math.nilgiri.DoubleReal;
 import com.accelad.math.nilgiri.DoubleRealFactory;
 import com.accelad.math.nilgiri.autodiff.Constant;

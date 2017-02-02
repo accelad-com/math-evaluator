@@ -6,15 +6,15 @@ import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
 
-import com.accelad.math.DoubleDouble;
+import com.accelad.math.doubledouble.DoubleDouble;
 import com.accelad.math.nilgiri.DoubleDoubleReal;
 
 public class DoubleDoubleRealElementTest {
 
     @Test
     public void should_return_origin_double_double_when_get_DoubleDouble() {
-        DoubleDouble veryBig = DoubleDouble.ONE.multiply(new DoubleDouble("10")).pow(32);
-        DoubleDouble veryLow = DoubleDouble.ONE.multiply(new DoubleDouble("10")).pow(-32);
+        DoubleDouble veryBig = DoubleDouble.ONE.multiply(DoubleDouble.valueOf("10")).pow(32);
+        DoubleDouble veryLow = DoubleDouble.ONE.multiply(DoubleDouble.valueOf("10")).pow(-32);
         DoubleDouble doubleDouble = veryBig.add(veryLow);
         DoubleDoubleReal doubleDoubleReal = new DoubleDoubleReal(doubleDouble);
         DoubleDoubleRealElement doubleDoubleRealElement = new DoubleDoubleRealElement(

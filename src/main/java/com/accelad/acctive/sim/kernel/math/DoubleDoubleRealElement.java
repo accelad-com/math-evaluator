@@ -5,7 +5,7 @@ import org.apache.commons.math3.FieldElement;
 import org.apache.commons.math3.exception.MathArithmeticException;
 import org.apache.commons.math3.exception.util.LocalizedFormats;
 
-import com.accelad.math.DoubleDouble;
+import com.accelad.math.doubledouble.DoubleDouble;
 import com.accelad.math.nilgiri.DoubleDoubleReal;
 
 /**
@@ -131,7 +131,7 @@ public class DoubleDoubleRealElement implements FieldElement<DoubleDoubleRealEle
      * @return BigDecimal value corresponding to the instance
      */
     public DoubleDouble doubleDoubleValue() {
-        return new DoubleDouble(d.getDoubleDouble());
+        return d.getDoubleDouble();
     }
 
     /** {@inheritDoc} */
