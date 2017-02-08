@@ -17,7 +17,7 @@
         <dependency>
             <groupId>com.accelad</groupId>
             <artifactId>nilgiri-math</artifactId>
-            <version>1.14-SNAPSHOT</version>
+            <version>1.14</version>
         </dependency>
         <dependency>
             <groupId>com.fathzer</groupId>

@@ -35,7 +35,7 @@ public class DoubleDoubleComplexMathFactory implements MathFactory<DoubleDoubleC
 
     @Override
     public DoubleDoubleComplex get(String literalValue) {
-        return new DoubleDoubleComplex(DoubleDouble.valueOf(literalValue), DoubleDouble.ZERO);
+        return new DoubleDoubleComplex(DoubleDouble.fromString(literalValue), DoubleDouble.ZERO);
     }
 
     @Override
@@ -50,7 +50,7 @@ public class DoubleDoubleComplexMathFactory implements MathFactory<DoubleDoubleC
 
     @Override
     public Constant<DoubleDoubleComplex> val(String name) {
-        return dfFactory.val(new DoubleDoubleComplex(DoubleDouble.valueOf(name), DoubleDouble.ZERO));
+        return dfFactory.val(new DoubleDoubleComplex(DoubleDouble.fromString(name), DoubleDouble.ZERO));
     }
 
     @Override
