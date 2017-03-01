@@ -21,7 +21,7 @@ class GreaterThanFunction<X extends Field<X>>
 
     @Override
     public X getValue() {
-        if (larg().getValue().getReal() > rarg().getValue().getReal()) {
+        if (larg().getValue().getReal() >= rarg().getValue().getReal()) {
             return DFFactory.get(1d);
         }
         return DFFactory.get(0d);
@@ -29,10 +29,7 @@ class GreaterThanFunction<X extends Field<X>>
 
     @Override
     public double getReal() {
-        if (larg().getReal() > rarg().getReal()) {
-            return 1d;
-        }
-        return 0d;
+        return getValue().getReal();
     }
 
     @Override
