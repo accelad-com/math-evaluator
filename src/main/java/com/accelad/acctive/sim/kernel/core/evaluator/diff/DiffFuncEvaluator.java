@@ -166,8 +166,8 @@ public class DiffFuncEvaluator<X extends Field<X>>
             return new GreaterThanFunction<>(factory, args.get(0), args.get(1));
         case STRICTLY_LESS_THAN:
             return new StrictlyLessThanFunction<>(factory, args.get(0), args.get(1));
-        case BETWEEN:
-            return new BetweenFunction<>(factory, args.get(0), args.get(1), args.get(2));
+        case BETWEEN_STRICTLY_LESS_THAN_MAX:
+            return new BetweenStrictlyLessThanMaxFunction<>(factory, args.get(0), args.get(1), args.get(2));
         case OUTSIDE:
             return new OutsideFunction<>(factory, args.get(0), args.get(1), args.get(2));
         case LATCH:

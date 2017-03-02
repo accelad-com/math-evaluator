@@ -7,7 +7,7 @@ import com.accelad.math.nilgiri.Field;
 import com.accelad.math.nilgiri.autodiff.DifferentialFunction;
 import com.accelad.math.nilgiri.autodiff.Variable;
 
-class BetweenFunction<X extends Field<X>>
+class BetweenStrictlyLessThanMaxFunction<X extends Field<X>>
         extends DifferentialFunction<X> {
 
     private final MathFactory<X> DFFactory;
@@ -16,7 +16,7 @@ class BetweenFunction<X extends Field<X>>
     private final DifferentialFunction<X> firstBound;
     private final DifferentialFunction<X> secondBound;
 
-    public BetweenFunction(MathFactory<X> DFFactory, DifferentialFunction<X> x,
+    public BetweenStrictlyLessThanMaxFunction(MathFactory<X> DFFactory, DifferentialFunction<X> x,
             DifferentialFunction<X> value1, DifferentialFunction<X> value2) {
         this.DFFactory = DFFactory;
         this.variable = x;
@@ -30,10 +30,14 @@ class BetweenFunction<X extends Field<X>>
         double a = firstBound.getValue().getReal();
         double b = secondBound.getValue().getReal();
 
-        if (v >= Math.min(a, b) && v <= Math.max(a, b)) {
-            return DFFactory.get(1d);
+        return innerGetValue(v, a, b).getValue();
+    }
+
+    private DifferentialFunction<X> innerGetValue(double arg, double firstBound, double secondBound) {
+        if (arg >= Math.min(firstBound, secondBound) && arg < Math.max(firstBound, secondBound)) {
+            return DFFactory.one();
         }
-        return DFFactory.get(0d);
+        return DFFactory.zero();
     }
 
     @Override

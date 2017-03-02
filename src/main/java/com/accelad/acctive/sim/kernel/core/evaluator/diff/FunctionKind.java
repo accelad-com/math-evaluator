@@ -7,7 +7,7 @@ import com.fathzer.soft.javaluator.Function;
 enum FunctionKind {
     GREATER_THAN(new Function("greaterthan", 2)),
     STRICTLY_LESS_THAN(new Function("lowerthan", 2)),
-    BETWEEN(new Function("between", 3)),
+    BETWEEN_STRICTLY_LESS_THAN_MAX(new Function("between", 3)),
     OUTSIDE(new Function("outside", 3)),
     LATCH(new Function("latch", 3)),
     TABLE(new Function("table", 1, Integer.MAX_VALUE)),
