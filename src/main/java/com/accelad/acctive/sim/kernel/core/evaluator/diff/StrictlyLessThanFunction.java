@@ -8,12 +8,12 @@ import com.accelad.math.nilgiri.autodiff.AbstractBinaryFunction;
 import com.accelad.math.nilgiri.autodiff.DifferentialFunction;
 import com.accelad.math.nilgiri.autodiff.Variable;
 
-class LowerThanFunction<X extends Field<X>>
+class StrictlyLessThanFunction<X extends Field<X>>
         extends AbstractBinaryFunction<X> {
 
     private final MathFactory<X> DFFactory;
 
-    LowerThanFunction(MathFactory<X> DFFactory, DifferentialFunction<X> i_v1,
+    StrictlyLessThanFunction(MathFactory<X> DFFactory, DifferentialFunction<X> i_v1,
             DifferentialFunction<X> i_v2) {
         super(i_v1, i_v2);
         this.DFFactory = DFFactory;
@@ -37,7 +37,7 @@ class LowerThanFunction<X extends Field<X>>
 
     @Override
     public String toString() {
-        return "LowerThan";
+        return "StrictlyLessThan";
     }
 
     @Override
