@@ -164,8 +164,8 @@ public class DiffFuncEvaluator<X extends Field<X>>
         switch (functionKind) {
         case GREATER_THAN:
             return new GreaterThanFunction<>(factory, args.get(0), args.get(1));
-        case LOWER_THAN:
-            return new LowerThanFunction<>(factory, args.get(0), args.get(1));
+        case STRICTLY_LESS_THAN:
+            return new StrictlyLessThanFunction<>(factory, args.get(0), args.get(1));
         case BETWEEN:
             return new BetweenFunction<>(factory, args.get(0), args.get(1), args.get(2));
         case OUTSIDE:
@@ -245,7 +245,7 @@ public class DiffFuncEvaluator<X extends Field<X>>
             List<DifferentialFunction<X>> args) {
         DifferentialFunction<X> x = args.get(0);
         DifferentialFunction<X> x0 = args.get(1);
-        DifferentialFunction<X> lowPart = new LowerThanFunction<>(mathFactory, x,
+        DifferentialFunction<X> lowPart = new StrictlyLessThanFunction<>(mathFactory, x,
                 mathFactory.one().minus(x0)).mul(
                 x.plus(x0).mul(mathFactory.exp(mathFactory.one().minus(x0))));
         DifferentialFunction<X> middlePart = new RestrictedDomainFunction<>(mathFactory, x,

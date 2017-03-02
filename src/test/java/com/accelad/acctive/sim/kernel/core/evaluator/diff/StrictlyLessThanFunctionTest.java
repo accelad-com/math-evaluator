@@ -11,7 +11,7 @@ import com.accelad.math.nilgiri.DoubleReal;
 import com.accelad.math.nilgiri.autodiff.DifferentialFunction;
 import com.accelad.math.nilgiri.autodiff.Variable;
 
-public class LowerThanFunctionTest {
+public class StrictlyLessThanFunctionTest {
 
     @Test
     public void testDiff() {
@@ -19,7 +19,7 @@ public class LowerThanFunctionTest {
         DifferentialFunction<DoubleReal> f1 = mock(DifferentialFunction.class);
         DifferentialFunction<DoubleReal> f2 = mock(DifferentialFunction.class);
         Variable<DoubleReal> v = mock(Variable.class);
-        LowerThanFunction<DoubleReal> func = new LowerThanFunction<>(factory, f1, f2);
+        StrictlyLessThanFunction<DoubleReal> func = new StrictlyLessThanFunction<>(factory, f1, f2);
 
         DoubleReal result = func.diff(v).getValue();
         DoubleReal expected = factory.zero().getValue();
