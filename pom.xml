@@ -3,7 +3,7 @@
 
     <groupId>com.accelad</groupId>
     <artifactId>nilgiri-math-evaluator</artifactId>
-    <version>1.8-SNAPSHOT</version>
+    <version>1.8</version>
 
     <name>Nilgiri Math Evaluator</name>
     <description>Nilgiri Math Evaluator</description>
@@ -175,7 +175,7 @@
         <developerConnection>scm:git:git@github.com:accelad-com/math-evaluator.git
         </developerConnection>
         <url>git@github.com:accelad-com/math-evaluator.git</url>
-        <tag>HEAD</tag>
+        <tag>1.8</tag>
     </scm>
 
     <developers>
