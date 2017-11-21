@@ -4,7 +4,6 @@ import com.accelad.math.doubledouble.DoubleDouble;
 import com.accelad.math.nilgiri.Field;
 import com.accelad.math.nilgiri.autodiff.Constant;
 import com.accelad.math.nilgiri.autodiff.DifferentialFunction;
-import com.accelad.math.nilgiri.autodiff.DifferentialVectorFunction;
 import com.accelad.math.nilgiri.autodiff.One;
 import com.accelad.math.nilgiri.autodiff.PreEvaluator;
 import com.accelad.math.nilgiri.autodiff.Variable;
@@ -19,8 +18,6 @@ public interface MathFactory<X extends Field<X>> {
     X get(double value);
 
     X get(DoubleDouble value);
-
-    Constant<X> val(String name);
 
     Constant<X> val(double val);
 
@@ -37,8 +34,6 @@ public interface MathFactory<X extends Field<X>> {
     Variable<X> var(String i_name, X i_x, PreEvaluator<X> preEvaluator);
 
     Variable<X> var(String i_name, X i_x);
-
-    DifferentialVectorFunction<X> function(DifferentialFunction<X>... i_x);
 
     Zero<X> zero();
 

@@ -10,7 +10,6 @@ enum FunctionKind {
     BETWEEN_STRICTLY_LESS_THAN_MAX(new Function("between", 3)),
     OUTSIDE(new Function("outside", 3)),
     LATCH(new Function("latch", 3)),
-    TABLE(new Function("table", 1, Integer.MAX_VALUE)),
     ABS(new Function("abs", 1)),
     FLOOR(new Function("floor", 1)),
     MAX(new Function("max", 2)),
