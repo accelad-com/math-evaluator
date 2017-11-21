@@ -7,14 +7,11 @@ import com.accelad.math.doubledouble.DoubleDouble;
 import com.accelad.math.nilgiri.DoubleDoubleReal;
 import com.accelad.math.nilgiri.DoubleDoubleRealFactory;
 import com.accelad.math.nilgiri.autodiff.Constant;
-import com.accelad.math.nilgiri.autodiff.ConstantVector;
 import com.accelad.math.nilgiri.autodiff.DifferentialFunction;
 import com.accelad.math.nilgiri.autodiff.DifferentialFunctionFactory;
-import com.accelad.math.nilgiri.autodiff.DifferentialVectorFunction;
 import com.accelad.math.nilgiri.autodiff.One;
 import com.accelad.math.nilgiri.autodiff.PreEvaluator;
 import com.accelad.math.nilgiri.autodiff.Variable;
-import com.accelad.math.nilgiri.autodiff.VariableVector;
 import com.accelad.math.nilgiri.autodiff.Zero;
 
 public class DoubleDoubleFactory implements MathFactory<DoubleDoubleReal> {
@@ -48,11 +45,6 @@ public class DoubleDoubleFactory implements MathFactory<DoubleDoubleReal> {
     }
 
     @Override
-    public Constant<DoubleDoubleReal> val(String name) {
-        return dfFactory.val(new DoubleDoubleReal(name));
-    }
-
-    @Override
     public Variable<DoubleDoubleReal> var(String i_name) {
         return dfFactory.var(i_name, new DoubleDoubleReal());
     }
@@ -79,14 +71,6 @@ public class DoubleDoubleFactory implements MathFactory<DoubleDoubleReal> {
         return dfFactory.val(i_x);
     }
 
-    public ConstantVector<DoubleDoubleReal> val(DoubleDoubleReal... i_x) {
-        return dfFactory.val(i_x);
-    }
-
-    public ConstantVector<DoubleDoubleReal> zero(int i_size) {
-        return dfFactory.zero(i_size);
-    }
-
     @Override
     public Variable<DoubleDoubleReal> var(String i_name, DoubleDoubleReal i_x,
             PreEvaluator<DoubleDoubleReal> preEvaluator) {
@@ -96,20 +80,6 @@ public class DoubleDoubleFactory implements MathFactory<DoubleDoubleReal> {
     @Override
     public Variable<DoubleDoubleReal> var(String i_name, DoubleDoubleReal i_x) {
         return dfFactory.var(i_name, i_x);
-    }
-
-    public VariableVector<DoubleDoubleReal> var(String i_name, DoubleDoubleReal... i_x) {
-        return dfFactory.var(i_name, i_x);
-    }
-
-    public VariableVector<DoubleDoubleReal> var(String i_name, int i_size) {
-        return dfFactory.var(i_name, i_size);
-    }
-
-    @Override
-    public DifferentialVectorFunction<DoubleDoubleReal> function(
-            DifferentialFunction<DoubleDoubleReal>... i_x) {
-        return dfFactory.function(i_x);
     }
 
     @Override

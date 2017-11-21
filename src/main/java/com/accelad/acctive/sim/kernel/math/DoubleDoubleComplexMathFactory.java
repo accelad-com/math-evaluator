@@ -7,14 +7,11 @@ import com.accelad.math.doubledouble.DoubleDouble;
 import com.accelad.math.nilgiri.DoubleDoubleComplex;
 import com.accelad.math.nilgiri.DoubleDoubleComplexFactory;
 import com.accelad.math.nilgiri.autodiff.Constant;
-import com.accelad.math.nilgiri.autodiff.ConstantVector;
 import com.accelad.math.nilgiri.autodiff.DifferentialFunction;
 import com.accelad.math.nilgiri.autodiff.DifferentialFunctionFactory;
-import com.accelad.math.nilgiri.autodiff.DifferentialVectorFunction;
 import com.accelad.math.nilgiri.autodiff.One;
 import com.accelad.math.nilgiri.autodiff.PreEvaluator;
 import com.accelad.math.nilgiri.autodiff.Variable;
-import com.accelad.math.nilgiri.autodiff.VariableVector;
 import com.accelad.math.nilgiri.autodiff.Zero;
 
 public class DoubleDoubleComplexMathFactory implements MathFactory<DoubleDoubleComplex> {
@@ -49,11 +46,6 @@ public class DoubleDoubleComplexMathFactory implements MathFactory<DoubleDoubleC
     }
 
     @Override
-    public Constant<DoubleDoubleComplex> val(String name) {
-        return dfFactory.val(new DoubleDoubleComplex(DoubleDouble.fromString(name), DoubleDouble.ZERO));
-    }
-
-    @Override
     public Variable<DoubleDoubleComplex> var(String name) {
         return dfFactory.var(name, new DoubleDoubleComplex());
     }
@@ -80,14 +72,6 @@ public class DoubleDoubleComplexMathFactory implements MathFactory<DoubleDoubleC
         return dfFactory.val(value);
     }
 
-    public ConstantVector<DoubleDoubleComplex> val(DoubleDoubleComplex... value) {
-        return dfFactory.val(value);
-    }
-
-    public ConstantVector<DoubleDoubleComplex> zero(int size) {
-        return dfFactory.zero(size);
-    }
-
     @Override
     public Variable<DoubleDoubleComplex> var(String name, DoubleDoubleComplex value,
             PreEvaluator<DoubleDoubleComplex> preEvaluator) {
@@ -97,21 +81,6 @@ public class DoubleDoubleComplexMathFactory implements MathFactory<DoubleDoubleC
     @Override
     public Variable<DoubleDoubleComplex> var(String name, DoubleDoubleComplex value) {
         return dfFactory.var(name, value);
-    }
-
-    public VariableVector<DoubleDoubleComplex> var(String name, DoubleDoubleComplex... value) {
-        return dfFactory.var(name, value);
-    }
-
-    public VariableVector<DoubleDoubleComplex> var(String name, int size) {
-        return dfFactory.var(name, size);
-    }
-
-    @SuppressWarnings("unchecked")
-    @Override
-    public DifferentialVectorFunction<DoubleDoubleComplex> function(
-            DifferentialFunction<DoubleDoubleComplex>... value) {
-        return dfFactory.function(value);
     }
 
     @Override

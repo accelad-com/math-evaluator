@@ -14,8 +14,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.accelad.acctive.sim.kernel.core.evaluator.OutsideFunction;
-import com.accelad.acctive.sim.kernel.core.evaluator.Point;
-import com.accelad.acctive.sim.kernel.core.evaluator.TableFunction;
 import com.accelad.acctive.sim.kernel.math.MathFactory;
 import com.accelad.math.nilgiri.Field;
 import com.accelad.math.nilgiri.autodiff.Constant;
@@ -172,8 +170,6 @@ public class DiffFuncEvaluator<X extends Field<X>>
             return new OutsideFunction<>(factory, args.get(0), args.get(1), args.get(2));
         case LATCH:
             return new LatchFunction<>(factory, args.get(0), args.get(1), args.get(2));
-        case TABLE:
-            return tableFunction(factory, args);
         case ABS:
             return factory.abs(args.get(0));
         case FLOOR:
@@ -258,19 +254,6 @@ public class DiffFuncEvaluator<X extends Field<X>>
         secureFunction.addArgTest(x0, variable -> variable.getReal() > 0.5,
                 "expl(x, x0): x0 must be greater than 0.5 [(1-x0) < x0]");
         return secureFunction;
-    }
-
-    private DifferentialFunction<X> tableFunction(MathFactory<X> mathFactory,
-            List<DifferentialFunction<X>> args) {
-        List<Point<X>> list = new ArrayList<>();
-        int count = (int) args.get(1).getReal();
-        for (int i = 2; i < count; i++) {
-            DifferentialFunction<X> xFunction = args.get(i);
-            DifferentialFunction<X> yFunction = args.get(i + 1);
-            Point<X> point = new Point<>(xFunction, yFunction);
-            list.add(point);
-        }
-        return new TableFunction<>(mathFactory, args.get(0), list);
     }
 
     private DifferentialFunction<X> engFunction(MathFactory<X> mathFactory,
