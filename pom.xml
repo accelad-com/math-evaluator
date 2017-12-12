@@ -32,7 +32,7 @@
         <dependency>
             <groupId>com.accelad</groupId>
             <artifactId>nilgiri-math</artifactId>
-            <version>1.16</version>
+            <version>1.16.1</version>
         </dependency>
         <dependency>
             <groupId>com.fathzer</groupId>
